@@ -1,0 +1,23 @@
+{
+  "name": "note-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool built in node to create markdown files integrated with Obsidian",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "note": "./cli.js"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "obsidian",
+    "markdown"
+  ],
+  "author": "Louis Morgan",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.6"
+  }
+}
