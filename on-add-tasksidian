@@ -22,22 +22,16 @@ const getData = async () => {
   })
 }
 
-const test = () => {
-  var child = child_process.execSync("tasksidian add", {
-    encoding : 'utf8',
-    input: '{ "description": "Description text", "project": "Work", "id": "uuid-1234567890" }'
-  });
-  console.log(child);
-}
-
 const main = async () => {
   const stringData = await getData()
   const result = child_process.execSync("tasksidian add", {
     encoding : 'utf8',
-    input: JSON.stringify(stringData[0]),
+    input: stringData.toString(),
   });
   process.stdout.write(result)
 }
 
 main()
-// test()
+
+
+

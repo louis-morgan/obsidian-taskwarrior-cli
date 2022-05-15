@@ -2,16 +2,23 @@
 const readline = require('readline');
 const args = require('minimist')(process.argv.slice(2));
 const getData = require('./utils/processStdIn')
+const addNote = require('./addNote')
 const main = async () => {
   const data = await getData()
-  process.stdout.write(JSON.parse(data))
-  if(args._ === 'add') {
-  }
+  const parsedData = data.map((task => JSON.parse(task)))
+
   // if command was `add` this means it was called via taskwarrior hooks
+  if(args._.includes('add')) {
     // check for project arg
     // create file and project folder if non exist
-      // if filename already exists add timestamp
-      // set yaml frontmatter to task metadata
+    // if filename already exists add timestamp
+    // set yaml frontmatter to task metadata
+    const result = addNote(parsedData[0])
+    if(!result.fileCreated) process.exit(1)
+
+    const output = `${JSON.stringify(result.task)}`.replace(/\\n/g, '')
+    process.stdout.write(output)
+  }
   
   // if command was `modify` this it was called via taskwarrior hooks
     // check metadata for existing note location, update metadata
