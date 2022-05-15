@@ -31,9 +31,8 @@ const addNote = (task) => {
     `
     fs.writeFileSync(`${dir}${fileName}`, fileData);
     res.fileCreated = true
-    res.task = task
-    return res
   }
+  res.task = task
   return res
 }
 module.exports = addNote
