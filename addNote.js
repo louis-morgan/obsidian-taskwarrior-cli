@@ -8,7 +8,7 @@ const res = {
 }
 
 const addNote = (task) => {
-  const fileName = `tw-${task.description.replace(' ', '-')}.md`
+  let fileName = `tw-${task.description.replace(' ', '-')}-${task.uuid}.md`
   
   if (task.project && task.addnote) {
     dir = `${dir}/${task.project}/`
