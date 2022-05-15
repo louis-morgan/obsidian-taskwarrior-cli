@@ -23,6 +23,10 @@ const addNote = (task) => {
     const fileData = `
       ---
       uuid: ${task.uuid}
+      description: ${task.uuid}
+      entry: ${task.entry}
+      modified: ${task.modified}
+      status: ${task.status}
       ---
     `
     fs.writeFileSync(`${dir}${fileName}`, fileData);
