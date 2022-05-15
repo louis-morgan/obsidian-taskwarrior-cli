@@ -26,12 +26,9 @@ const main = async () => {
   const stringData = await getData()
   const result = child_process.execSync("tasksidian add", {
     encoding : 'utf8',
-    input: stringData.toString(),
+    input: stringData[0]
   });
   process.stdout.write(result)
 }
 
 main()
-
-
-
